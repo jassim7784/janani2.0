@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/TeamIntro.module.css";
 
+
 const groups = [
   {
     index: "01",
@@ -15,6 +16,7 @@ const groups = [
   {
     index: "03",
     label: "Core Team",
+    
     
   },
 ];
@@ -90,9 +92,7 @@ export default function TeamIntro() {
                   {group.label}
                 </span>
 
-                <span className={styles.groupCount}>
-                  {group.count}
-                </span>
+               
               </div>
             ))}
           </div>
