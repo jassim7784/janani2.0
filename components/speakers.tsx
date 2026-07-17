@@ -115,7 +115,7 @@ function SpeakerTrack({
 
 export default function Speakers() {
   return (
-    <section className={styles.speakers}>
+    <section className={styles.speakers} id="speakers">
       <header className={styles.header}>
         <h2>
           DISTINGUISHED

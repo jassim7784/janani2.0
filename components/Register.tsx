@@ -25,7 +25,6 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   useEffect(() => {
@@ -74,7 +73,6 @@ export default function Register() {
       setName("");
       setEmail("");
       setPhone("");
-      setMessage("");
     }
   };
 
@@ -240,14 +238,6 @@ Gain exclusive access to expert-led sessions, networking opportunities, and indu
               required
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-            />
-
-            <textarea
-              placeholder="Message"
-              aria-label="Message"
-              rows={3}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
             />
 
             <button type="submit" disabled={status === "loading"}>
