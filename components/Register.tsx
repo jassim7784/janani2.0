@@ -1,7 +1,9 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState, useRef } from "react";
 import { supabase } from "../lib/supabase";
+import { QRCodeSVG } from "qrcode.react";
+import html2canvas from "html2canvas";
 import styles from "../styles/Register.module.css";
 
 const EVENT_DATE = new Date("2026-07-24T09:00:00");
@@ -27,6 +29,8 @@ export default function Register() {
   const [phone, setPhone] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [ticketData, setTicketData] = useState<{name: string, id: string} | null>(null);
+  const ticketRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateCountdown = () => {
@@ -62,19 +66,39 @@ export default function Register() {
     event.preventDefault();
     setStatus("loading");
 
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from("registrations")
-      .insert([{ name, email, phone, category }]);
+      .insert([{ name, email, phone, category }])
+      .select();
 
     if (error) {
       console.error(error);
       setStatus("error");
     } else {
+      const insertedId = data?.[0]?.id;
+      const formattedId = `JAN2026-${String(insertedId || Math.floor(Math.random() * 10000)).padStart(6, '0')}`;
+      
+      setTicketData({
+        name,
+        id: formattedId
+      });
+      
       setStatus("success");
       setName("");
       setEmail("");
       setPhone("");
       setCategory("");
+    }
+  };
+
+  const downloadTicket = () => {
+    if (ticketRef.current && ticketData) {
+      html2canvas(ticketRef.current, { backgroundColor: "#1c1a1b" }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = `JANANI2026-Ticket-${ticketData.name}.png`;
+        link.href = canvas.toDataURL();
+        link.click();
+      });
     }
   };
 
@@ -206,8 +230,9 @@ export default function Register() {
             </div>
           </div>
 
-          {/* FORM */}
+          {/* FORM OR TICKET */}
 
+          {status !== "success" ? (
           <form className={styles.form} onSubmit={handleSubmit}>
             <h3>REGISTER NOW</h3>
 
@@ -258,9 +283,56 @@ Gain exclusive access to expert-led sessions, networking opportunities, and indu
             <button type="submit" disabled={status === "loading"}>
               {status === "loading" ? "Registering..." : "Register"}
             </button>
-            {status === "success" && <p style={{color: "#4ade80", marginTop: "1rem"}}>Registration successful!</p>}
             {status === "error" && <p style={{color: "#ef4444", marginTop: "1rem"}}>Error submitting form. Please try again.</p>}
           </form>
+          ) : (
+            <div className={styles.ticketContainer}>
+              <div ref={ticketRef} style={{ padding: "20px", background: "#1c1a1b" }}>
+                <div className={styles.ticketHeader}>
+                  JANANI 2026
+                  <br />
+                  EVENT PASS
+                </div>
+
+                <div className={styles.ticketDivider}></div>
+
+                <div className={styles.ticketQR}>
+                  <QRCodeSVG value={`ID: ${ticketData?.id}, Name: ${ticketData?.name}`} size={80} />
+                </div>
+
+                <div className={styles.ticketField}>
+                  <span>Name</span>
+                  {ticketData?.name}
+                </div>
+                
+                <div className={styles.ticketField}>
+                  <span>ID</span>
+                  {ticketData?.id}
+                </div>
+
+                <div className={styles.ticketField}>
+                  <span>Date</span>
+                  24 JULY 2026
+                </div>
+
+                <div className={styles.ticketField}>
+                  <span>Location</span>
+                  St. Teresa's College
+                  <br />
+                  Ernakulam
+                </div>
+                
+                <div className={styles.ticketDivider}></div>
+              </div>
+
+              <div style={{ marginTop: "10px" }}>
+                Please take a screenshot or download your ticket.
+                <button onClick={downloadTicket} className={styles.ticketDownloadBtn}>
+                  [Download Ticket]
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* MAP */}
 
