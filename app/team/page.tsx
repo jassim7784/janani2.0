@@ -33,7 +33,7 @@ const teamGroups: TeamGroup[] = [
         id: "02",
         name: "APJM Jainulabudeen",
         role: "Secretary, AKIF",
-        image: "/images/jainulabudeen.jpg",
+        image: "/images/team/jainulabudeen.jpg",
       },
       {
         id: "03",
@@ -64,8 +64,8 @@ const teamGroups: TeamGroup[] = [
       {
         id: "06",
         name: "Capt. Prakash Kumar",
-        role: "Retd.",
-        image: "/images/team/prakash-kumar.jpg",
+        role: "Senior Mentor, National Coordinator.",
+        image: "/images/pradeep.png",
       },
     ],
   },
@@ -79,7 +79,7 @@ const teamGroups: TeamGroup[] = [
         id: "07",
         name: "Gurdeep Kaur",
         role: "Core Team",
-        image: "/images/team/gurdeep-kaur.jpg",
+        image: "/images/gurdeepkaur.png",
       },
       {
         id: "08",
