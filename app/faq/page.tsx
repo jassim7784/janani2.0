@@ -25,8 +25,25 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navbar />
       
       <section className="pt-32 pb-20 px-6 md:px-12 max-w-4xl mx-auto">
