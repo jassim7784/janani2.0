@@ -76,7 +76,7 @@ export default function Register() {
       setStatus("error");
     } else {
       const insertedId = data?.[0]?.id;
-      const formattedId = `JAN2026-${String(insertedId || Math.floor(Math.random() * 10000)).padStart(6, '0')}`;
+      const formattedId = `JAN26-${String(insertedId || Math.floor(Math.random() * 1000)).padStart(3, '0')}`;
       
       setTicketData({
         name,
@@ -297,7 +297,10 @@ Gain exclusive access to expert-led sessions, networking opportunities, and indu
                 <div className={styles.ticketDivider}></div>
 
                 <div className={styles.ticketQR}>
-                  <QRCodeSVG value={`ID: ${ticketData?.id}, Name: ${ticketData?.name}`} size={80} />
+                  <QRCodeSVG 
+                    value={`JANANI 2026 Event Pass\nID: ${ticketData?.id}\nName: ${ticketData?.name}\nDate: 24 July 2026, 08:00 AM\nLocation: St. Teresa's College, Ernakulam`} 
+                    size={80} 
+                  />
                 </div>
 
                 <div className={styles.ticketField}>
