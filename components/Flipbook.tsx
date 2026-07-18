@@ -63,7 +63,7 @@ export default function Flipbook({ file }: FlipbookProps) {
   const bookWidth = isMobile ? windowWidth - 40 : 550;
   const bookHeight = isMobile ? bookWidth * 1.414 : 778;
 
-  const maxAvailableHeight = windowHeight > 220 ? windowHeight - 220 : 600;
+  const maxAvailableHeight = windowHeight > 0 ? windowHeight * 0.75 : 600;
   const maxAvailableWidth = maxAvailableHeight / 1.414;
 
   const bookRef = React.useRef<any>(null);
@@ -118,15 +118,12 @@ export default function Flipbook({ file }: FlipbookProps) {
             disableFlipByClick={false}
           >
             {Array.from({ length: numPages }).map((_, index) => (
-              <FlipPage
-                key={index}
-                className={styles.page}
-              >
+              <FlipPage key={index} className={styles.page}>
                 <Page
                   pageNumber={index + 1}
-                  width={bookWidth}
                   renderAnnotationLayer={false}
                   renderTextLayer={false}
+                  className={styles.pdfPage}
                 />
               </FlipPage>
             ))}
