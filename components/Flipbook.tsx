@@ -75,7 +75,7 @@ export default function Flipbook({ file }: FlipbookProps) {
 
   return (
     <section className={styles.container}>
-      <Document file={file} onLoadSuccess={onLoadSuccess}>
+      <Document file={file} onLoadSuccess={onLoadSuccess} className={styles.document}>
         {numPages > 0 && (
           <div className={styles.flipbookWrapper}>
             <button className={`${styles.navButton} ${styles.prev}`} onClick={prevButtonClick}>
