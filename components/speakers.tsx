@@ -75,7 +75,7 @@ const speakers: Speaker[] = [
   {
     name: "Leema Jacob",
     role: "Politician",
-    image: null,
+    image: "/images/Leema Jacob.jpeg",
   },
   {
     name: "Arathy Krishna",
@@ -170,7 +170,7 @@ const speakers: Speaker[] = [
   {
     name: "Dr. Amrita Sabu",
     role: "Doctor",
-    image: "null",
+    image: "/images/Dr Amrita Sabu.jpeg",
   },
   {
     name: "Jeemol Koruth Verghese",
@@ -180,7 +180,7 @@ const speakers: Speaker[] = [
   {
     name: "Justice Mary Joseph",
     role: "Judge",
-    image: null,
+    image: "/images/Justice Mary Joseph.jpeg",
   },
   {
     name: "Nisha Jose K. Mani",
@@ -205,7 +205,7 @@ const speakers: Speaker[] = [
   {
     name: "Lena",
     role: "Actress",
-    image: null,
+    image: "/images/lena.png",
   },
   
 ];
