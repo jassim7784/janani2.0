@@ -48,6 +48,7 @@ export default function Flipbook({ file }: FlipbookProps) {
       <Document file={file} onLoadSuccess={onLoadSuccess}>
         {numPages > 0 && (
           <HTMLFlipBook
+            style={{}}
             width={450}
             height={650}
             size="stretch"
