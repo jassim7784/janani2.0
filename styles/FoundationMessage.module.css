@@ -700,7 +700,7 @@
   .quoteCard {
     grid-column: 1;
 
-    min-height: 560px;
+    min-height: 380px;
 
     padding: 28px 24px;
 
@@ -714,7 +714,7 @@
   .quote {
     padding-bottom: 50px;
 
-    font-size: clamp(42px, 12.5vw, 64px);
+    font-size: clamp(28px, 8vw, 48px);
 
     line-height: 0.9;
   }
@@ -773,13 +773,13 @@
   }
 
   .quoteCard {
-    min-height: 520px;
+    min-height: 320px;
 
     padding: 24px 20px;
   }
 
   .quote {
-    font-size: clamp(38px, 11.8vw, 54px);
+    font-size: clamp(24px, 7vw, 42px);
   }
 
   .quoteArrow {
