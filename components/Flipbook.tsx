@@ -43,16 +43,21 @@ export default function Flipbook({ file }: FlipbookProps) {
     setNumPages(numPages);
   }
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
 
   React.useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setWindowWidth(window.innerWidth);
     };
-    handleResize(); // Initial check
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const isMobile = windowWidth < 768;
+  const bookWidth = isMobile ? windowWidth - 40 : 550;
+  const bookHeight = isMobile ? bookWidth * 1.414 : 778;
 
   return (
     <section className={styles.container}>
@@ -60,8 +65,8 @@ export default function Flipbook({ file }: FlipbookProps) {
         {numPages > 0 && (
           <HTMLFlipBook
             style={{}}
-            width={550}
-            height={778}
+            width={bookWidth}
+            height={bookHeight}
             size="stretch"
             minWidth={315}
             maxWidth={1000}
@@ -90,7 +95,7 @@ export default function Flipbook({ file }: FlipbookProps) {
               >
                 <Page
                   pageNumber={index + 1}
-                  width={550}
+                  width={bookWidth}
                   renderAnnotationLayer={false}
                   renderTextLayer={false}
                 />
