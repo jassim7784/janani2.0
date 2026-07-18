@@ -203,7 +203,7 @@ const speakers: Speaker[] = [
     image: "/images/Anila Rajeev.png",
   },
   {
-    name: "Lena",
+    name: "Lenaa Kumar",
     role: "Actress",
     image: "/images/lena.png",
   },
