@@ -58,13 +58,13 @@ const teamGroups: TeamGroup[] = [
       {
         id: "05",
         name: "Dr. Jerry Mathew",
-        role: "Executive Chairman",
+        role: "Executive Chairman, Director, Medical & Education",
         image: "/images/chairman.jpg",
       },
       {
         id: "06",
         name: "Capt. Prakash Kumar",
-        role: "Senior Mentor, National Coordinator.",
+        role: "Senior Mentor, National Co-Ordinator, Executive Director Media & Films",
         image: "/images/pradeep.png",
       },
     ],

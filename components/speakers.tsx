@@ -61,7 +61,7 @@ const speakers: Speaker[] = [
   },
   {
     name: "Uthara Ramakrishnan",
-    role: "Finance Professional",
+    role: "FOUNDER & MANAGING DIRECTOR, ARTHA FINANCIAL SERVICES",
     image: "/images/Uthara Ramakrishnan.png",
   },
   {
@@ -89,7 +89,7 @@ const speakers: Speaker[] = [
   },
   {
     name: "Melani Shibu",
-    role: "Professional",
+    role: "Founder & Owner | Mistic Blooms",
     image: "/images/Melani Shibu.png",
   },
   {
@@ -138,8 +138,8 @@ const speakers: Speaker[] = [
     image: "/images/Safrina Latheef.png",
   },
   {
-    name: "Latha K",
-    role: "Professional",
+    name: "Chef Letha Kuniyil",
+    role: "First woman chef of Kerala, India",
     image: "/images/Latha K.png",
   },
   {
