@@ -4,7 +4,7 @@ import React, { forwardRef, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { Document, Page, pdfjs } from "react-pdf";
 
-import styles from "./Flipbook.module.css";
+import styles from "../styles/Flipbook.module.css";
 
 import "react-pdf/dist/Page/TextLayer.css";
 import "react-pdf/dist/Page/AnnotationLayer.css";
