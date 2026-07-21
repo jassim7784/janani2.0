@@ -20,7 +20,7 @@ export default function Home() {
       <Hero />
       <ChairmanMessage />
       <AboutJanani />
-      <FlipbookWrapper file="/images/jananibrochure.pdf" />
+      <FlipbookWrapper file="/images/E-brouchure.pdf"/> 
       <FoundationMessage />
       <Legacy/>
       <Speakers/>
