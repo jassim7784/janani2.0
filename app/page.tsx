@@ -11,6 +11,9 @@ import FoundationMessage from "@/components/FoundationMessage";
 import TeamIntro from "@/components/TeamIntro";
 import FlipbookWrapper from "@/components/FlipbookWrapper";
 import Footer from "@/components/Footer";
+import Newsletter from "@/components/Newsletter"
+ import Blogs from "@/components/blogs"
+import Sponsors from "@/components/sponsors";
 
 export default function Home() {
   return (
@@ -22,11 +25,14 @@ export default function Home() {
       <ChairmanMessage />
       <AboutJanani />
       <FlipbookWrapper file="/images/E-brouchure.pdf"/> 
+      <Sponsors />
       <FoundationMessage />
       <Legacy/>
       <Speakers/>
       <WhyAttend/>
       <TeamIntro/>
+     <Newsletter/>
+      <Blogs/>
       <Register/>
       <Footer/>
     
